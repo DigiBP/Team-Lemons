@@ -1,6 +1,6 @@
 # Team-Lemons
 
-# Team members<br />
+## :lemon: Team members :lemon:<br />
 Anojan Arunasalam<br />
 Bosko Simic<br />
 Noah Bechler<br />
