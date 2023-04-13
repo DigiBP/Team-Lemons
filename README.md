@@ -1,5 +1,12 @@
 # :lemon: Team-Lemons :lemon:
 
+##### Table of Contents  
+[Headers](#headers)  
+[Emphasis](#emphasis)  
+...snip...    
+<a name="headers"/>
+## Headers
+
 # Team members <br />
 Anojan Arunasalam<br />
 Bosko Simic<br />
