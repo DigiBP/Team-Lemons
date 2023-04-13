@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_00cnws7" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.8.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="Decision_0ztdzii" name="Decision Approver 3">
+    <decisionTable id="DecisionTable_15fnh5l">
+      <input id="Input_1" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>Budgeted</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_03lhaue">
+        <inputExpression id="LiteralExpression_1g0jcj0" typeRef="integer">
+          <text>Credit amount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="Approver 3" typeRef="string" biodi:width="192" />
+      <rule id="DecisionRule_18j22nd">
+        <inputEntry id="UnaryTests_0l6x4wy">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10bnr8c">
+          <text>&lt;= 100000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14gk07m">
+          <text>ML 2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dvyd3c">
+        <inputEntry id="UnaryTests_0y8tyki">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cgbvtp">
+          <text>&lt;= 1000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1poip0n">
+          <text>ML 1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07y8tpq">
+        <inputEntry id="UnaryTests_1f5zb59">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hi7ugq">
+          <text>&lt;= 2000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0urs1n4">
+          <text>ML 0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15q8qag">
+        <inputEntry id="UnaryTests_1miaflo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yw4z63">
+          <text>&lt;= 40000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pxyz4i">
+          <text>Executive Board</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04je8k7">
+        <inputEntry id="UnaryTests_0kob66h">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zlujll">
+          <text>&gt; 40000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_112uvx8">
+          <text>Board of Directors</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xhw190">
+        <inputEntry id="UnaryTests_021smvn">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abbbfx">
+          <text>&lt;= 20000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fd5gbo">
+          <text>ML 2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_126dnnf">
+        <inputEntry id="UnaryTests_1x1vm74">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l74st5">
+          <text>&lt;= 250000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02jhsfj">
+          <text>ML 1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jge172">
+        <inputEntry id="UnaryTests_19y7d3t">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wdi169">
+          <text>&lt;= 500000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16hz0yu">
+          <text>ML 0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w0650q">
+        <inputEntry id="UnaryTests_1bvj7a1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14tmbvt">
+          <text>&lt;= 20000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_060xl0j">
+          <text>Executive Board</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jyjq2o">
+        <inputEntry id="UnaryTests_0sssxsl">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1omyhqj">
+          <text>&gt; 20000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03wti4l">
+          <text>Board of Directors</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0ztdzii">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
