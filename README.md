@@ -1,10 +1,10 @@
 # :lemon: Team-Lemons :lemon:
 
 # Team members <br />
-Anojan Arunasalam<br />
-Bosko Simic<br />
-Noah Bechler<br />
-Seline Wenger<br />
+* Anojan Arunasalam<br />
+* Bosko Simic<br />
+* Noah Bechler<br />
+* Seline Wenger<br />
 
 # Introduction <br />
 This document describes the credit approval process at the Coop Group and how it is digitized.<br />
