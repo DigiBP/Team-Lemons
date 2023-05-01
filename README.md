@@ -27,8 +27,6 @@ In reality, there is often a deviation from the predefined process flow, which l
 A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is. <br />
 
 ## To-be-Process <br />
-As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the process itself should not be changed. The actual requirement is that the process should be digitized and become audit compliant. <br />
+As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
 
-Therefore, the process flow will stay the same and as mentioned above: <br />
 
-Credit applicant – sub-project manager – project manager – line manager<br />
