@@ -26,7 +26,11 @@ In reality, there is often a deviation from the predefined process flow, which l
 
 A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is. <br />
 
+![Coop_asis_process](https://user-images.githubusercontent.com/130597830/235457039-e1572102-e334-4030-a572-38056f6bb0f2.png)
+
 ## To-be-Process <br />
 As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
+
+![Coop_tobe_process ](https://user-images.githubusercontent.com/130597830/235456996-e2d0b927-c4c4-473d-840d-d61c095a6518.png)
 
 
