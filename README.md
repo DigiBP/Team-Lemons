@@ -33,4 +33,8 @@ As mentioned above the to-be-process was defined in meetings with Coop. Withing 
 
 ![Coop_tobe_process ](https://user-images.githubusercontent.com/130597830/235456996-e2d0b927-c4c4-473d-840d-d61c095a6518.png)
 
+# Digitalization of Process <br />
+As already visible in the to-be process, several process steps are to be automated: 
+* The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
+![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
 
