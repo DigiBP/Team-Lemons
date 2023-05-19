@@ -47,6 +47,8 @@ As already visible in the to-be process, several process steps are to be automat
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/8df4b4f6-0487-4065-8178-d86cb6891cde)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2c613dee-844f-4264-9718-fb5e76ee7b49)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/5e73ebc8-48bd-40e0-b610-47248940c38a)
+* **Get Approver 3 (iSaaS)**: After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
 
 * **Send Request for Approval (iSaaS):** For each approver, a request is to be sent per email with the option to approve or decline the credit application. When the application is declined, the process instance will end. However, if the application is approved, the workflow automatically identifies the next approving authority. 
