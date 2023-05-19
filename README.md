@@ -31,13 +31,17 @@ A clear disadvantage of the current process is, that it is not transparent at wh
 ## To-be-Process <br />
 As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
 
-![Coop_tobe_process ](https://user-images.githubusercontent.com/130597830/235456996-e2d0b927-c4c4-473d-840d-d61c095a6518.png)
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/1edec8f9-2f7f-4aa5-bcd2-6f0b0f3e42c5)
 
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
 * **Message Start Event (iSaaS):** The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
 ![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
-* **Get Project Details:** The application form is to be enriched with further project information such as the project's name and the (sub-)project manager. A database is created in mySQL where all relevant data is stored. With a lookup the data can be extracted for the project in question. 
+* **Get Project Details:** The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. Therefore, a database is created in mySQL with the table "employees" and "Projects":
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
+  * **Get additional information (iSaaS)**: A service task that is called . 
+ ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/39bbbc7f-266a-434d-bac6-da944e1dfdfa)
+
   * **Error Handling**: in case that the sub-project-manager and/or the project manager cannot be identified since the master data maintenance in the project has not been carried out properly and error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interrupting is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details. 
 * **Decide on Third Apporver (DMN):** Two input criteria determine who will be the final approving authority. The amount of the credit as well as the fact whether the credit was budgeted or not are used as input. As the single hit rule is applied, each combination will lead to a unique, unambiguous output. 
 * **Send Request for Approval (iSaaS):** For each approver, a request is to be sent per email with the option to approve or decline the credit application. When the application is declined, the process instance will end. However, if the application is approved, the workflow automatically identifies the next approving authority. 
