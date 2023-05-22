@@ -33,6 +33,17 @@ As mentioned above the to-be-process was defined in meetings with Coop. Withing 
 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/1edec8f9-2f7f-4aa5-bcd2-6f0b0f3e42c5)
 
+## Description of the to-be process steps
+In the following the process steps of the to-be process are explained. 
+* The credit applicant fills out the credit request form with the amount of money required for a specific process and submits the   request
+* The first approver (sub-project manager) will decline or accept the request.
+  * The information about the first approver is stored in the project database.
+* The second approver (project manager) will decline or accept the request.
+   * The information about the second approver is stored in the project database.
+* The third approver is chosen depending on the amount of money requested by the credit applicant. 
+  * The DMN Model created by the group will decide which management level will be requried to accept or decline the request. 
+* After the third approval the information about the credit will be forwarded to the accounting department where it will be processes and updated in the SAP system.
+
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
 * **Message Start Event (iSaaS):** The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
@@ -53,3 +64,5 @@ As already visible in the to-be process, several process steps are to be automat
 
 
 * **Send Request for Approval (iSaaS):** For each approver, a request is to be sent per email with the option to approve or decline the credit application. When the application is declined, the process instance will end. However, if the application is approved, the workflow automatically identifies the next approving authority. 
+
+# Outlook
