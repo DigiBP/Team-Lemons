@@ -26,12 +26,17 @@ In reality, there is often a deviation from the predefined process flow, which l
 
 A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is. <br />
 
-![Coop_asis_process](https://user-images.githubusercontent.com/130597830/235457039-e1572102-e334-4030-a572-38056f6bb0f2.png)
+
+![Coop_as-is_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/2918f95d-26d7-43e6-8139-100e21d7506e)
+
 
 ## To-be-Process <br />
 As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
 
-![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/1edec8f9-2f7f-4aa5-bcd2-6f0b0f3e42c5)
+![Coop_to-be_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/87b4ceb3-8a4e-49a5-bb02-1b1e40a48885)
+
+
+![Coop_tobe_process_Subprocess](https://github.com/DigiBP/Team-Lemons/assets/127504259/0fb53a2f-b3f4-424b-85ca-4d44539be658)
 
 ## Description of the to-be process steps
 In the following the process steps of the to-be process are explained. 
