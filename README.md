@@ -58,11 +58,12 @@ The process instance starts with the receiption of new credit application. The c
 The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
  ### Get additional information (iSaaS)<br />
- A service task that is called . 
- ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/39bbbc7f-266a-434d-bac6-da944e1dfdfa)
+From the variables of the initial request, further information out of the database can be added. One one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/68a80eea-2c76-4393-af1d-9c2a57c6ed21)
 
  ### Error Handling<br />
 In case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interruption is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
+To trigger this error event, a router in make was included. If the project ID does not exists in the mySQL database, a http request to the BPMN error Message Event is sent. 
 ## Decide on ML Level for Third Approver (DMN)<br />
 In the decision requirements diagram the overview on how to decide on the ML Level for the third approver is shown. In a frist step, the amount of the credit as well as the fact whether the credit was budgeted or not are used as input, resulting into the required ML Level of the third approver. This output variable is used as an input for the second decision model, where also the ML Level of the initiator is considered. Meaning, if the ML Level of the initiator is equal or above the ML Level of the third approver, the third approval can be dispensed. As the unique hit rule is applied, each combination will lead to a unique, unambiguous output. 
 
