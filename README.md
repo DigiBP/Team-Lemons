@@ -78,11 +78,13 @@ After the DMN returned the ML Level of the thrid approver, the user behind this 
 For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
-Email for Approval Request: <br />
+<br />
+**Email for Approval Request:** <br />
 ![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/3d637c57-32a8-4e4c-a31c-dced4de17ea8)
-JavaScript for Approve Button: <br />
+<br />
+**JavaScript for Approve Button:** <br />
 ![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/07f910eb-5b87-462b-a9d5-8307ce2d9248)
-JavaScript for Reject Button: <br />
+**JavaScript for Reject Button:** <br />
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
 ## Get Approval Decision (iSaaS)<br />
