@@ -73,13 +73,13 @@ As already visible in the to-be process, several process steps are to be automat
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
 Email for Approval Request: <br />
-![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/7b2f7082-eb6c-4cde-a91c-b1cd8bdcc8e8)
+![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/3d637c57-32a8-4e4c-a31c-dced4de17ea8)
 <br />
 JavaScript for Approve Button: <br />
-![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/551541e0-70e8-4bf2-b449-a551a5a4806c)
+![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/07f910eb-5b87-462b-a9d5-8307ce2d9248)
 <br />
 JavaScript for Reject Button: <br />
-![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/5b83b447-7307-4d8f-bc5b-aedae3f9b416)
+![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
 
 
