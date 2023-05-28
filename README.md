@@ -24,7 +24,7 @@ Since the process is paper-based and not digital, the document must be send to t
 The course of the process is based on the project managers and the management levels to be involved, depending on the amount requested. The approval process always has 3 approvers, the first two of which are determined from the data of the selected project. The sub-project manager and the project manager are always involved.<br />
 In reality, there is often a deviation from the predefined process flow, which leads to competence regulations not being respected. As a result, problems with the internal audit team can arise at a later stage. <br />
 
-A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is. <br />
+A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is at. <br />
 
 
 ![Coop_as-is_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/2918f95d-26d7-43e6-8139-100e21d7506e)
