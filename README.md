@@ -69,18 +69,15 @@ As already visible in the to-be process, several process steps are to be automat
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
 
-* **Send Request for Approval (iSaaS):** For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. 
+* **Send Request for Approval (iSaaS):** For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
-
-
-Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 <br />
 Email for Approval Request: <br />
 ![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/7b2f7082-eb6c-4cde-a91c-b1cd8bdcc8e8)
-
+<br />
 JavaScript for Approve Button: <br />
 ![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/551541e0-70e8-4bf2-b449-a551a5a4806c)
-
+<br />
 JavaScript for Reject Button: <br />
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/5b83b447-7307-4d8f-bc5b-aedae3f9b416)
 
