@@ -31,7 +31,7 @@ A clear disadvantage of the current process is, that it is not transparent at wh
 
 
 ## To-be-Process <br />
-As mentioned above the to-be-process was defined in meetings with Coop. Withing the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
+As mentioned above the to-be-process was defined in meetings with Coop. Within the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
 
 ![Coop_to-be_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/87b4ceb3-8a4e-49a5-bb02-1b1e40a48885)
 
@@ -47,7 +47,7 @@ In the following the process steps of the to-be process are explained.
    * The information about the second approver is stored in the project database.
 * The third approver is chosen depending on the amount of money requested by the credit applicant. 
   * The DMN Model created by the group will decide which management level will be requried to accept or decline the request. 
-* After the third approval the information about the credit will be forwarded to the accounting department where it will be processes and updated in the SAP system.
+* After the third approval the information about the credit will be forwarded to the accounting department where it will be processed and updated in the SAP system.
 
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
@@ -62,7 +62,7 @@ The application form is to be enriched with further project information such as 
  ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/39bbbc7f-266a-434d-bac6-da944e1dfdfa)
 
  ### Error Handling<br />
-In case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interrupting is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
+In case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interruption is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
 ## Decide on ML Level for Third Approver (DMN)<br />
 In the decision requirements diagram the overview on how to decide on the ML Level for the third approver is shown. In a frist step, the amount of the credit as well as the fact whether the credit was budgeted or not are used as input, resulting into the required ML Level of the third approver. This output variable is used as an input for the second decision model, where also the ML Level of the initiator is considered. Meaning, if the ML Level of the initiator is equal or above the ML Level of the third approver, the third approval can be dispensed. As the unique hit rule is applied, each combination will lead to a unique, unambiguous output. 
 
@@ -75,7 +75,7 @@ After the DMN returned the ML Level of the thrid approver, the user behind this 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
 ## Send Request for Approval (iSaaS)<br />
-For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
+For each approver, an approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
 <br />
@@ -90,5 +90,11 @@ For each approver, a approval request is sent per email. In the email, HTML butt
 ## Get Approval Decision (iSaaS)<br />
 As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. 
 
+# Innovation
+To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  
 
 # Outlook
+In the following an outlook about possible enhancements of the process will be given. 
+
+The processes could be improved with certain automations. One of these automations could be an update of the credit status in the SAP system after the credit approval processes is finished. Therefore an interface between the approval workflow and the SAP system would need to be established. The interface could then give the information about the credit amount and person responsible to the SAP system, where the data could be updated and stored. 
+
