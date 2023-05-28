@@ -74,10 +74,8 @@ As already visible in the to-be process, several process steps are to be automat
 <br />
 Email for Approval Request: <br />
 ![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/3d637c57-32a8-4e4c-a31c-dced4de17ea8)
-<br />
 JavaScript for Approve Button: <br />
 ![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/07f910eb-5b87-462b-a9d5-8307ce2d9248)
-<br />
 JavaScript for Reject Button: <br />
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
