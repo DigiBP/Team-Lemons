@@ -63,11 +63,22 @@ As already visible in the to-be process, several process steps are to be automat
 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/8df4b4f6-0487-4065-8178-d86cb6891cde)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2c613dee-844f-4264-9718-fb5e76ee7b49)
-![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/5e73ebc8-48bd-40e0-b610-47248940c38a)
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a889e7aa-1f6f-468a-a165-4fab5cea044c)
+
 * **Get Approver 3 (iSaaS)**: After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
 
-* **Send Request for Approval (iSaaS):** For each approver, a request is to be sent per email with the option to approve or decline the credit application. When the application is declined, the process instance will end. However, if the application is approved, the workflow automatically identifies the next approving authority. 
+* **Send Request for Approval (iSaaS):** For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
+<br />
+Email for Approval Request: <br />
+![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/0e110269-ea79-4986-8635-0263d854e7c8)
+JavaScript for Approve Button: <br />
+![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/2315dc5e-aca4-44f1-8271-1db6bf226b15)
+JavaScript for Reject Button: <br />
+![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/834b87cf-477f-4a9d-abf6-910a5dcb5805)
+
+
+
 
 # Outlook
