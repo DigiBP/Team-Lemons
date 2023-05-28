@@ -96,5 +96,8 @@ To incorporate innovation into the workflow, the team trained an algorithm that 
 # Outlook
 In the following an outlook about possible enhancements of the process will be given. 
 
+A small optimization that could be done is to further streamline the process. If allowed by interal audit the approval of one of the project managers could be left out. Consequently the approval run time could be shortened and the money needed for the project could be released faster. 
+
 The processes could be improved with certain automations. One of these automations could be an update of the credit status in the SAP system after the credit approval processes is finished. Therefore an interface between the approval workflow and the SAP system would need to be established. The interface could then give the information about the credit amount and person responsible to the SAP system, where the data could be updated and stored. 
 
+Given the rise of chatbots it could also be a possibility to build a chatbot where employees could insert some keywords and the bot would start the credit approval process automatically. Those keywords would need to contain the project name, the amount of money required and the reason why the credit is needed. 
