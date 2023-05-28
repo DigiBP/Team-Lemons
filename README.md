@@ -17,9 +17,9 @@ The team "Lemons" will simplify and digitalize the current process for Coop and 
 In the following chapter the process design of the as-is-process and the to-be-process will be described. The to-be-process was defined in meetings with Coop. <br />
 
 ## As-Is-Process <br />
-In the as-is-process the person submitting the credit application was filling out a word form which must be printed out and later on sent to different participants depending on the project and actual amount of the credit which was asked for. <br />
+In the as-is-process the person submitting the credit application was filling out a word form which must be printed out and later on send to different participants depending on the project and actual amount of the credit which was asked for. <br />
 
-Since the process is paper-based and not digital, the document must be sent to the respective approvers via in-house mail.<br />
+Since the process is paper-based and not digital, the document must be send to the respective approvers via in-house mail.<br />
 
 The course of the process is based on the project managers and the management levels to be involved, depending on the amount requested. The approval process always has 3 approvers, the first two of which are determined from the data of the selected project. The sub-project manager and the project manager are always involved.<br />
 In reality, there is often a deviation from the predefined process flow, which leads to competence regulations not being respected. As a result, problems with the internal audit team can arise at a later stage. <br />
