@@ -51,25 +51,31 @@ In the following the process steps of the to-be process are explained.
 
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
-* **Message Start Event (iSaaS):** The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
+## Message Start Event (iSaaS) <br />
+The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
 ![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
-* **Get Project Details:** The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
+## Get Project Details <br />
+The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
-  * **Get additional information (iSaaS)**: A service task that is called . 
+ ### Get additional information (iSaaS)<br />
+ A service task that is called . 
  ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/39bbbc7f-266a-434d-bac6-da944e1dfdfa)
 
-  * **Error Handling**: in case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interrupting is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
-* **Decide on ML Level for Third Approver (DMN):** In the decision requirements diagram the overview on how to decide on the ML Level for the third approver is shown. In a frist step, the amount of the credit as well as the fact whether the credit was budgeted or not are used as input, resulting into the required ML Level of the third approver. This output variable is used as an input for the second decision model, where also the ML Level of the initiator is considered. Meaning, if the ML Level of the initiator is equal or above the ML Level of the third approver, the third approval can be dispensed. As the unique hit rule is applied, each combination will lead to a unique, unambiguous output. 
+ ### Error Handling<br />
+In case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interrupting is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
+## Decide on ML Level for Third Approver (DMN)<br />
+In the decision requirements diagram the overview on how to decide on the ML Level for the third approver is shown. In a frist step, the amount of the credit as well as the fact whether the credit was budgeted or not are used as input, resulting into the required ML Level of the third approver. This output variable is used as an input for the second decision model, where also the ML Level of the initiator is considered. Meaning, if the ML Level of the initiator is equal or above the ML Level of the third approver, the third approval can be dispensed. As the unique hit rule is applied, each combination will lead to a unique, unambiguous output. 
 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/8df4b4f6-0487-4065-8178-d86cb6891cde)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2c613dee-844f-4264-9718-fb5e76ee7b49)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a889e7aa-1f6f-468a-a165-4fab5cea044c)
 
-* **Get Approver 3 (iSaaS)**: After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
+## Get Approver 3 (iSaaS)<br />
+After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
-
-* **Send Request for Approval (iSaaS):** For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
+## Send Request for Approval (iSaaS)<br />
+For each approver, a approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
 Email for Approval Request: <br />
@@ -79,8 +85,8 @@ JavaScript for Approve Button: <br />
 JavaScript for Reject Button: <br />
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
-
-
+## Get Approval Decision (iSaaS)<br />
+As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. 
 
 
 # Outlook
