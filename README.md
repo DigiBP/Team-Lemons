@@ -89,16 +89,17 @@ For each approver, an approval request is sent per email. In the email, HTML but
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
 ## Get Approval Decision (iSaaS)<br />
-As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. 
+As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In make, a Google Sheets module is watching for new rows and sends a HTTP request back to the Camunda Process instance which completes the intermediate message event. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/c39ac2a1-0782-4995-819c-8ff953b0ad7a)
 
 # Innovation
 To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  
 
 # Outlook
-In the following an outlook about possible enhancements of the process will be given. 
+In the following an outlook about possible enhancements of the process will be given. <br />
 
-A small optimization that could be done is to further streamline the process. If allowed by interal audit the approval of one of the project managers could be left out. Consequently the approval run time could be shortened and the money needed for the project could be released faster. 
+A small optimization that could be done is to further streamline the process. If allowed by interal audit the approval of one of the project managers could be left out. Consequently the approval run time could be shortened and the money needed for the project could be released faster. <br />
 
-The processes could be improved with certain automations. One of these automations could be an update of the credit status in the SAP system after the credit approval processes is finished. Therefore an interface between the approval workflow and the SAP system would need to be established. The interface could then give the information about the credit amount and person responsible to the SAP system, where the data could be updated and stored. 
+The processes could be improved with certain automations. One of these automations could be an update of the credit status in the SAP system after the credit approval processes is finished. Therefore an interface between the approval workflow and the SAP system would need to be established. The interface could then give the information about the credit amount and person responsible to the SAP system, where the data could be updated and stored. <br />
 
-Given the rise of chatbots it could also be a possibility to build a chatbot where employees could insert some keywords and the bot would start the credit approval process automatically. Those keywords would need to contain the project name, the amount of money required and the reason why the credit is needed. 
+Given the rise of chatbots it could also be a possibility to build a chatbot where employees could insert some keywords and the bot would start the credit approval process automatically. Those keywords would need to contain the project name, the amount of money required and the reason why the credit is needed. <br />
