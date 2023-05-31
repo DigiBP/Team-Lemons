@@ -26,6 +26,13 @@ In reality, there is often a deviation from the predefined process flow, which l
 
 A clear disadvantage of the current process is, that it is not transparent at what stage of approval the process currently is at. <br />
 
+:x: Paper-based processes without automation
+:x: Decision logic to determine third Approver is not documented and is defined manually
+:x: Process is error prone as decision logic is not made explicit
+:x: Lack of traceability during the various stages of the process.
+:x: Lack of traceability prior to internal audit. 
+:x: Long lead times due to the absence of standardization.
+
 
 ![Coop_as-is_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/2918f95d-26d7-43e6-8139-100e21d7506e)
 
