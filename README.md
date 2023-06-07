@@ -58,10 +58,10 @@ In the following the process steps of the to-be process are explained.
 
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
-## Message Start Event (iSaaS) <br />
+## Message Start Event (MAKE Scenario 1) <br />
 The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
 ![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
-## Get Project Details <br />
+## Get Project Details (MAKE Scenario 2) <br />
 The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
  ### Get additional information (iSaaS)<br />
@@ -78,11 +78,11 @@ In the decision requirements diagram the overview on how to decide on the ML Lev
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2c613dee-844f-4264-9718-fb5e76ee7b49)
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a889e7aa-1f6f-468a-a165-4fab5cea044c)
 
-## Get Approver 3 (iSaaS)<br />
+## Get Approver 3 (MAKE Scenario 3)<br />
 After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
-## Send Request for Approval (iSaaS)<br />
+## Send Request for Approval (MAKE Scenarios 4, 7, 10)<br />
 For each approver, an approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
@@ -93,11 +93,29 @@ For each approver, an approval request is sent per email. In the email, HTML but
 **JavaScript for Approve Button:** <br />
 ![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/07f910eb-5b87-462b-a9d5-8307ce2d9248)
 **JavaScript for Reject Button:** <br />
-![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
+![Rejection_Script](https://github.comIf the approval decision is negative, the initiator must be informed about this decision. Afterwards, the process is ended without applying for further approvals. /DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
-## Get Approval Decision (iSaaS)<br />
-As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In make, a Google Sheets module is watching for new rows and sends a HTTP request back to the Camunda Process instance which completes the intermediate message event. 
+## Get Approval Decision (MAKE Scenarios 5, 8, 12)<br />
+As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In MAKE, a Google Sheets module is watching for new rows, and to reduce errors, is filtering to rows that are not yet processed and updates them with yes. Afterwards, a HTTP request is sent back to the Camunda Process instance which completes the intermediate message event. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/c39ac2a1-0782-4995-819c-8ff953b0ad7a)
+
+## Send Rejection to Initiator (MAKE Scenarions 6, 9, 13)<br />
+If the approval decision is negative, the initiator must be informed about this decision. Afterwards, the process is ended without applying for further approvals. The name of the decision maker is inserted into the mail by querying the MySQL database, so that the requester can contact the decision maker in case of questions. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/d22cd551-9a87-4fbd-bd95-dcf0f9acb5ae)
+
+## Send Reminder to Approver 3 (MAKE Scenario 11)<br />
+After the approval decision of the third approver has been requested, the process reaches an event-based gateway. If two working days pass without an approval decision being obtained in the form of an intermediate message catch event, the third approver must be reminded by e-mail. At this stage, the employee information of the third approver is queried from the MySQL database and the approval decision mail has to be sent again. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/cf48d6ab-17b4-4848-8127-ebde3c5cea9c)
+
+## Notify Accounting (MAKE Scenario 14)<br />
+As soon as all decision-makers have approved the application, the accounting department must be informed of the decision. After all approvers. Since the accounting team has a fixed group mailbox, the scenario does not need a connection to the mysql database. 
+
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/73f14a98-f876-4382-972c-d73adfa8d4bc)
+
+
+## Send Confirmation to Initiator (MAKE Scenario 15)<br />
+Obviously, also the initiator has to be informed about the positive decision. Thereby, a last MAKE Scenario is needed to send an email with the confirmation to the applicant. After the HTTP request is completing this step, the process is ended. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a0f1d123-3d99-4f4c-a452-41572a73c789)
 
 # Innovation
 To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  
