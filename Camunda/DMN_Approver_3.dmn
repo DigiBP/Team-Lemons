@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="DecideApprover3" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.8.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="Decision_Approver_3" name="Decision ML Level Approver">
+    <informationRequirement id="InformationRequirement_1905r8p">
+      <requiredInput href="#InputData_1nikcib" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1lewo3t">
+      <requiredInput href="#InputData_1ixlaq0" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_15fnh5l">
+      <input id="InputClause_1c9lnwb" label="Budgeted">
+        <inputExpression id="LiteralExpression_1gc8wev" typeRef="string" expressionLanguage="feel">
+          <text>budgeted</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1xqtz5p">
+          <text>"yes","no"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_03lhaue" label="Credit Amount" biodi:width="192">
+        <inputExpression id="LiteralExpression_1g0jcj0" typeRef="integer">
+          <text>creditAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="MLLevelApprover" name="mLLevelApprover" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_0bsigmd">
+          <text>"Board of Directors","3","2","1","0"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_18j22nd">
+        <inputEntry id="UnaryTests_0iou5xe">
+          <text>"yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10bnr8c">
+          <text>&lt;= 100000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14gk07m">
+          <text>"3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dvyd3c">
+        <inputEntry id="UnaryTests_090u2xa">
+          <text>"yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cgbvtp">
+          <text>]100000..1000000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1poip0n">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07y8tpq">
+        <inputEntry id="UnaryTests_1rbfkoh">
+          <text>"yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hi7ugq">
+          <text>]1000000..2000000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0urs1n4">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15q8qag">
+        <inputEntry id="UnaryTests_0slsg4w">
+          <text>"yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yw4z63">
+          <text>]2000000..40000000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pxyz4i">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04je8k7">
+        <inputEntry id="UnaryTests_16ubyv6">
+          <text>"yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zlujll">
+          <text>&gt; 40000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_112uvx8">
+          <text>"Board of Directors"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xhw190">
+        <inputEntry id="UnaryTests_0uqg8kp">
+          <text>"no"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0abbbfx">
+          <text>&lt;= 20000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fd5gbo">
+          <text>"3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_126dnnf">
+        <inputEntry id="UnaryTests_1he82ea">
+          <text>"no"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l74st5">
+          <text>]20000..250000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02jhsfj">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jge172">
+        <inputEntry id="UnaryTests_0nu0wfj">
+          <text>"no"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wdi169">
+          <text>]250000..500000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16hz0yu">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w0650q">
+        <inputEntry id="UnaryTests_1oyjhyd">
+          <text>"no"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14tmbvt">
+          <text>]500000..2000000]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_060xl0j">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jyjq2o">
+        <inputEntry id="UnaryTests_0y3s7ok">
+          <text>"no"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1omyhqj">
+          <text>&gt; 2000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03wti4l">
+          <text>"Board of Directors"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1nikcib" name="Budget" />
+  <inputData id="InputData_1ixlaq0" name="Price Quote" />
+  <knowledgeSource id="KnowledgeSource_1ydm00n" name="Accounting Policy" />
+  <inputData id="InputData_1lancql" name="Applicant Data" />
+  <decision id="Decision_Final_Approver" name="Approver 3">
+    <informationRequirement id="InformationRequirement_1fm9mef">
+      <requiredDecision href="#Decision_Approver_3" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1hz5sl8">
+      <requiredInput href="#InputData_1lancql" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_0z30vo6">
+      <requiredAuthority href="#KnowledgeSource_1ydm00n" />
+    </authorityRequirement>
+    <decisionTable id="DecisionTable_0dzhhaf">
+      <input id="InputClause_0wcex5i" label="MLLevelApprover">
+        <inputExpression id="LiteralExpression_0vr9434" typeRef="string">
+          <text>mLLevelApprover</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0hyks3e">
+          <text>"3","2","1","0","Board of Directors"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_11it6lk" label="MLLevelApplicant" biodi:width="192">
+        <inputExpression id="LiteralExpression_1rsuu3l" typeRef="string">
+          <text>mLLevelApplicant</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0i11occ">
+          <text>"4","3","2","1","0"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_02r54ua" name="finalApprover_3" typeRef="string">
+        <outputValues id="UnaryTests_09y1mc8">
+          <text>"not required","3","2","1","0"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1l7swhf">
+        <inputEntry id="UnaryTests_0qiix7f">
+          <text>"3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14f4omu">
+          <text>"4"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xvvphj">
+          <text>"3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dyyh5u">
+        <inputEntry id="UnaryTests_14dyzcg">
+          <text>"3"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j1fizx">
+          <text>"3","2","1","0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1np7fen">
+          <text>"not required"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1faib29">
+        <inputEntry id="UnaryTests_0y6pdtv">
+          <text>"2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqk938">
+          <text>"4","3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sepa73">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zwpt23">
+        <inputEntry id="UnaryTests_0xr98cx">
+          <text>"2"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14js5y2">
+          <text>"2","1","0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jej7xj">
+          <text>"not required"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qem25j">
+        <inputEntry id="UnaryTests_035e4kd">
+          <text>"1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02riepa">
+          <text>"4","3","2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p4vbpj">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uey5r9">
+        <inputEntry id="UnaryTests_174y6ea">
+          <text>"1"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u04ukp">
+          <text>"1","0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w1wpc2">
+          <text>"not required"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qggjan">
+        <inputEntry id="UnaryTests_1pn7dfr">
+          <text>"0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03ih8jc">
+          <text>"4","3","2","1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nebf88">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b665wb">
+        <inputEntry id="UnaryTests_00uwb1u">
+          <text>"0"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nhsaur">
+          <text>"0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0am77rf">
+          <text>"not required"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11mtyxx">
+        <inputEntry id="UnaryTests_1tl5byr">
+          <text>"Board of Directors"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vteui2">
+          <text>"4","3","2","1","0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01hz42c">
+          <text>"not required"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_Approver_3">
+        <dc:Bounds height="80" width="180" x="440" y="380" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1co0ai2" dmnElementRef="InputData_1nikcib">
+        <dc:Bounds height="45" width="125" x="367" y="568" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1x92ty7" dmnElementRef="InformationRequirement_1905r8p">
+        <di:waypoint x="430" y="568" />
+        <di:waypoint x="500" y="480" />
+        <di:waypoint x="500" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1x2yoig" dmnElementRef="InputData_1ixlaq0">
+        <dc:Bounds height="45" width="125" x="557" y="568" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1hlfnnk" dmnElementRef="InformationRequirement_1lewo3t">
+        <di:waypoint x="620" y="568" />
+        <di:waypoint x="560" y="480" />
+        <di:waypoint x="560" y="460" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jocixv" dmnElementRef="KnowledgeSource_1ydm00n">
+        <dc:Bounds height="63" width="100" x="460" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0u4wzmu" dmnElementRef="AuthorityRequirement_0z30vo6">
+        <di:waypoint x="460" y="130" />
+        <di:waypoint x="400" y="199" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1c1eu8i" dmnElementRef="InformationRequirement_1fm9mef">
+        <di:waypoint x="530" y="380" />
+        <di:waypoint x="340" y="290" />
+        <di:waypoint x="340" y="270" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0ixrziq" dmnElementRef="InputData_1lancql">
+        <dc:Bounds height="45" width="125" x="158" y="358" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0y6b8n5" dmnElementRef="Decision_Final_Approver">
+        <dc:Bounds height="80" width="180" x="220" y="190" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1m8kznz" dmnElementRef="InformationRequirement_1hz5sl8">
+        <di:waypoint x="221" y="358" />
+        <di:waypoint x="280" y="290" />
+        <di:waypoint x="280" y="270" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
