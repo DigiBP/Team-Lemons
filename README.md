@@ -142,6 +142,7 @@ Obviously, also the initiator has to be informed about the positive decision. Th
 
 # Innovation
 To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  
+To make the prediction, sample data sets are needed to train the model. The data needed for this comes from the MySQL table fct_Approval. This table holds all approvals from all levels. However, only the last instance is relevant for the prediction, so the table is modified for Aito.ai and only the necessary data rows are uploaded. After uploading the data to Aito.ai, a schema must be defined. For each column it must be decided what the data type is and if it is needed for the prediction.
 
 # Benefits
 This chapter will give a short summary of the benefits of our solution. <br />
