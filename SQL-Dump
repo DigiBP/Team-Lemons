@@ -1,0 +1,175 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql23j14.db.hostpoint.internal
+-- Erstellungszeit: 08. Jun 2023 um 22:37
+-- Server-Version: 10.6.12-MariaDB-log
+-- PHP-Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `osotolac_DigiBP23Lemons`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `dim_employees`
+--
+
+CREATE TABLE `dim_employees` (
+  `Employee_ID` varchar(10) DEFAULT NULL,
+  `FirstName` varchar(50) DEFAULT NULL,
+  `LastName` varchar(50) DEFAULT NULL,
+  `eMail` varchar(100) DEFAULT NULL,
+  `ML` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `ORG_ID` int(11) DEFAULT NULL,
+  `Organizational_Unt` varchar(255) DEFAULT NULL,
+  `DIR_ID` varchar(50) DEFAULT NULL,
+  `Directory_Unit` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `dim_employees`
+--
+
+INSERT INTO `dim_employees` (`Employee_ID`, `FirstName`, `LastName`, `eMail`, `ML`, `ORG_ID`, `Organizational_Unt`, `DIR_ID`, `Directory_Unit`) VALUES
+('SVHU4', 'Svenja ', 'Huber', 'lemonsdigibp+SvenjaHuber@gmail.com', '1', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('FAME7', 'Fabian ', 'Meier', 'lemonsdigibp+FabianMeier@gmail.com', '2', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('ADSC5', 'Adrian ', 'Schmid', 'lemonsdigibp+AdrianSchmid@gmail.com', '3', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('JANO5', 'Jakub ', 'Novak', 'lemonsdigibp+JakubNovak@gmail.com', '3', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('MARO3', 'Marco ', 'Rossi', 'lemonsdigibp+MarcoRossi@gmail.com', '4', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('ANDU8', 'Antoine ', 'Dubois', 'lemonsdigibp+AntoineDubois@gmail.com', '4', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('LUFE8', 'Luca ', 'Ferrari', 'lemonsdigibp+LucaFerrari@gmail.com', '4', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('WIKAS', 'Roger ', 'Federer', 'lemonsdigibp+RogerFederer@gmail.com', '0', 5000, 'Finance', '5', 'Finance'),
+('SCP41', 'Rafael ', 'Nadal', 'lemonsdigibp+RafaelNadal@gmail.com', '1', 5000, 'Finance', '5', 'Finance'),
+('AAAA3', 'Lando ', 'Norris', 'lemonsdigibp+LandoNorris@gmail.com', '2', 5000, 'Finance', '5', 'Finance'),
+('LUWE3', 'Lukas ', 'Weber', 'lemonsdigibp+LukasWeber@gmail.com', '3', 5000, 'Finance', '5', 'Finance'),
+('NAFI2', 'Nadine ', 'Fischer', 'lemonsdigibp+NadineFischer@gmail.com', '4', 5000, 'Finance', '5', 'Finance'),
+('SIMU4', 'Simone ', 'Müller', 'lemonsdigibp+SimoneMueller@gmail.com', '4', 5000, 'Finance', '5', 'Finance'),
+('GAMA0', 'Gabriel ', 'Martinelli', 'lemonsdigibp+GabrielMartinelli@gmail.com', '0', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('BUSA3', 'Bukayo ', 'Saka', 'lemonsdigibp+BukayoSaka@gmail.com', '1', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('ARKU6', 'Aravindan ', 'Kumar', 'lemonsdigibp+AravindanKumar@gmail.com', '2', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('NISR0', 'Nithya ', 'Srinivasan', 'lemonsdigibp+NithyaSrinivasan@gmail.com', '3', 7001, 'Digital & Customers', '7', 'IT, Digital & Customer'),
+('ANPE7', 'Ana ', 'Petrovic', 'lemonsdigibp+AnaPetrovic@gmail.com', '3', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('LEZI2', 'Lea ', 'Zimmermann', 'lemonsdigibp+LeaZimmermann@gmail.com', '4', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('DARO7', 'Daniel ', 'Roth', 'lemonsdigibp+DanielRoth@gmail.com', '4', 7000, 'IT', '7', 'IT, Digital & Customer'),
+('LEBR5', 'Lena ', 'Brunner', 'lemonsdigibp+LenaBrunner@gmail.com', '1', 7002, 'IT Prozesse Warenwirtschaft', '7', 'IT, Digital & Customer'),
+('JASC6', 'Janine ', 'Schaefer', 'lemonsdigibp+JanineSchaefer@gmail.com', '2', 7002, 'IT Prozesse Warenwirtschaft', '7', 'IT, Digital & Customer'),
+('MABA2', 'Marco ', 'Bachmann', 'lemonsdigibp+MarcoBachmann@gmail.com', '3', 7002, 'IT Prozesse Warenwirtschaft', '7', 'IT, Digital & Customer'),
+('OLKE9', 'Olivia ', 'Keller', 'lemonsdigibp+OliviaKeller@gmail.com', '4', 7002, 'IT Prozesse Warenwirtschaft', '7', 'IT, Digital & Customer'),
+('JARO5', 'Javier ', 'Rodriguez', 'lemonsdigibp+JavierRodriguez@gmail.com', '0', 4000, 'Logistik National', '4', 'Logistics'),
+('SOGA5', 'Sofia ', 'Garcia', 'lemonsdigibp+SofiaGarcia@gmail.com', '1', 4000, 'Logistik National', '4', 'Logistics'),
+('IVKO0', 'Ivana ', 'Kovacic', 'lemonsdigibp+IvanaKovacic@gmail.com', '2', 4000, 'Logistik National', '4', 'Logistics'),
+('ADKO6', 'Adam ', 'Kowalczyk', 'lemonsdigibp+AdamKowalczyk@gmail.com', '3', 4000, 'Logistik National', '4', 'Logistics'),
+('MAGR1', 'Marcel ', 'Graf', 'lemonsdigibp+MarcelGraf@gmail.com', '4', 4000, 'Logistik National', '4', 'Logistics'),
+('LUSC1', 'Luisa ', 'Schreiber', 'lemonsdigibp+LuisaSchreiber@gmail.com', '4', 4000, 'Logistik National', '4', 'Logistics'),
+('ISCO1', 'Isabella ', 'Conte', 'lemonsdigibp+IsabellaConte@gmail.com', '4', 4000, 'Logistik National', '4', 'Logistics'),
+('WIJO4', 'William ', 'Johnson', 'lemonsdigibp+WilliamJohnson@gmail.com', '4', 4000, 'Logistik National', '4', 'Logistics'),
+('ANFI7', 'Andrea ', 'Fischer', 'lemonsdigibp+AndreaFischer@gmail.com', '1', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('DAHUS', 'David ', 'Huber', 'lemonsdigibp+DavidHuber@gmail.com', '2', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('LABA1', 'Laura ', 'Baumgartner', 'lemonsdigibp+LauraBaumgartner@gmail.com', '3', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('SIEG4', 'Simon ', 'Egli', 'lemonsdigibp+SimonEgli@gmail.com', '4', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('EMTA7', 'Emma ', 'Taylor', 'lemonsdigibp+EmmaTaylor@gmail.com', '4', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('DICO1', 'Diogo ', 'Costa', 'lemonsdigibp+DiogoCosta@gmail.com', '4', 4001, 'Logistik VRE Bern', '4', 'Logistics'),
+('JUMA5', 'Juliette ', 'Martin', 'lemonsdigibp+JulietteMartin@gmail.com', '1', 5001, 'Treasury', '5', 'Finance'),
+('SAKU1', 'Sathish ', 'Kumar', 'lemonsdigibp+SathishKumar@gmail.com', '2', 5001, 'Treasury', '5', 'Finance'),
+('MAIV3', 'Maria ', 'Ivanova', 'lemonsdigibp+MariaIvanova@gmail.com', '3', 5001, 'Treasury', '5', 'Finance'),
+('ALBI0', 'Alessia ', 'Bianchi', 'lemonsdigibp+AlessiaBianchi@gmail.com', '4', 5001, 'Treasury', '5', 'Finance'),
+('TIMU6', 'Timo ', 'Müller', 'lemonsdigibp+TimoMueller@gmail.com', '4', 5001, 'Treasury', '5', 'Finance'),
+('ANSI2', 'Ana ', 'Silva', 'lemonsdigibp+AnaSilva@gmail.com', '4', 7002, 'IT Prozesse Warenwirtschaft', '7', 'IT, Digital & Customer'),
+('NOBE1', 'Noah', 'Bechler', 'lemonsdigibp+NoahBechler@gmail.com', 'VR', 1000, 'Board of Directors', '1', 'Board of Directors');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `dim_Projects`
+--
+
+CREATE TABLE `dim_Projects` (
+  `PSP_Element` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Project` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Cost_Center` int(11) DEFAULT NULL,
+  `Project_Manager_ID` varchar(50) DEFAULT NULL,
+  `SUB_Project_Manager_ID` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `dim_Projects`
+--
+
+INSERT INTO `dim_Projects` (`PSP_Element`, `Project`, `Cost_Center`, `Project_Manager_ID`, `SUB_Project_Manager_ID`) VALUES
+('CH-001287-06', 'Beschaffung Codescanner', 2056, 'EMTA7', 'LABA1'),
+('CH-001919-01', 'SAP FI Anpassung', 10182, 'NAFI2', 'LUWE3'),
+('CH-001570-10-3', 'Marketing-Kampagne - Summer season', 1979, 'LUFE8', 'NISR0'),
+('CH-002456-01', 'Teamevent Finance Treasury', 10245, 'ALBI0', 'MAIV3'),
+('CH-004456-08', 'TK-Erneuerung', 8548, 'ISCO1', 'ADKO6'),
+('CH-003568-11-2', 'Implementierung Workflow-Prozess', 45685, 'OLKE9', 'MABA2');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `fct_approval`
+--
+
+CREATE TABLE `fct_approval` (
+  `timestamp` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `answer` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `fullNameApplicant` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `projectName` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `projectNumber` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `creditAmount` int(11) DEFAULT NULL,
+  `Budgeted` varchar(5) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `creditReason` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `approverID` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `approver` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `fct_approval`
+--
+
+INSERT INTO `fct_approval` (`timestamp`, `answer`, `fullNameApplicant`, `projectName`, `projectNumber`, `creditAmount`, `Budgeted`, `creditReason`, `approverID`, `approver`) VALUES
+('21/05/2023 20:09:52', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:10:08', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:12:32', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:15:27', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:18:07', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:21:10', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:23:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:29:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:29:56', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:33:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:16:16', 'Approve', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:21:19', 'Approve', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:22:07', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:23:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('22/05/2023 08:51:22', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('22/05/2023 13:46:43', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('22/05/2023 17:11:14', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 09:37:54', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 09:59:06', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 10:03:42', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('28/05/2023 18:57:49', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('04/06/2023 13:11:37', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'LUWE3', 'Approver1'),
+('04/06/2023 13:18:37', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'NAFI2', 'Approver2'),
+('04/06/2023 13:21:45', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3'),
+('04/06/2023 13:21:45', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3'),
+('05/06/2023 08:28:29', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'LUWE3', 'Approver1'),
+('05/06/2023 11:25:42', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'NAFI2', 'Approver2'),
+('05/06/2023 11:27:34', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
