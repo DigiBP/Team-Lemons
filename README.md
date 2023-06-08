@@ -74,10 +74,10 @@ The process  starts with the receiption of new credit application. The credit ap
 
 
 ## Get Project Details (MAKE Scenario 2) <br />
-The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with is created:<br />
+The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL is created:<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2066d55c-498f-40e6-87db-698aae902997)
  ### Get additional information<br />
-From the variables of the initial request, further information out of the database can be added. On one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
+From the variables of the initial request, further information out of the database can be added. As this task is fulfilled by a external worker, a REST API call of the form fetch and lock is performed that is subscribed to a specific topic. The worker selects the row for which request no enrichement has taken place so far (Project Details = null). On one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/68a80eea-2c76-4393-af1d-9c2a57c6ed21)
 
  ### Error Handling<br />
