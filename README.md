@@ -44,9 +44,10 @@ A clear disadvantage of the current process is, that it is not transparent at wh
 ## To-be-Process <br />
 As mentioned above the to-be-process was defined in meetings with Coop. Within the meetings it became clear, that the most important aspect is to create an audit compliant and digitizied process. Nevertheless there were some improvements done to the process which are shown in the the following graphic. <br />
 
+**To-Be Process** 
 ![Coop_to-be_process](https://github.com/DigiBP/Team-Lemons/assets/127504259/87b4ceb3-8a4e-49a5-bb02-1b1e40a48885)
 
-
+**Subprocess "Request Project Information"**
 ![Coop_tobe_process_Subprocess](https://github.com/DigiBP/Team-Lemons/assets/127504259/0fb53a2f-b3f4-424b-85ca-4d44539be658)
 
 ## Description of the to-be process steps
@@ -109,19 +110,23 @@ For each approver, an approval request is sent per email. In the email, HTML but
 ![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
 ## Get Approval Decision (MAKE Scenarios 5, 8, 12)<br />
-As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In MAKE, a Google Sheets module is watching for new rows, and to reduce errors, is filtering to rows that are not yet processed and updates them with yes. Afterwards, a HTTP request is sent back to the Camunda Process instance which completes the intermediate message event. 
-![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/c39ac2a1-0782-4995-819c-8ff953b0ad7a)
+As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In MAKE, a Google Sheets module is watching for new rows, and to reduce errors, is filtering to rows that are not yet processed (sent = null). After the right row is selected, the decision is also written in our fact table of the mySQL database table fct_Approval. It then updates the Google Sheets cell with sent = yes. Afterwards, a HTTP request is sent back to the Camunda Process instance which completes the intermediate message event. 
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/92ef4117-6934-4d0d-8d39-c03b9c7fb91d)<br />
+<br />
+**Google Sheets for Decision**
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/e4e7c0ae-80ff-4c10-a5da-418f6f42f7e6)
+
 
 ## Send Rejection to Initiator (MAKE Scenarions 6, 9, 13)<br />
-If the approval decision is negative, the initiator must be informed about this decision. Afterwards, the process is ended without applying for further approvals. The name of the decision maker is inserted into the mail by querying the MySQL database, so that the requester can contact the decision maker in case of questions. 
+If the approval decision is negative, the initiator must be informed about this decision. In this case, the process is ended without applying for further approvals. This task is once again executed by an external worker using a REST API call of the form fetch and lock that is subscribed to a specific topic. The name of the decision maker is inserted into the mail to the initiator by querying the MySQL database, so that the requester can contact the decision maker in case of questions. After the task is completed, an API REST request is sent back to Camunda. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/d22cd551-9a87-4fbd-bd95-dcf0f9acb5ae)
 
 ## Send Reminder to Approver 3 (MAKE Scenario 11)<br />
-After the approval decision of the third approver has been requested, the process reaches an event-based gateway. If two working days pass without an approval decision being obtained in the form of an intermediate message catch event, the third approver must be reminded by e-mail. At this stage, the employee information of the third approver is queried from the MySQL database and the approval decision mail has to be sent again. 
+After the approval decision of the third approver has been requested, the process reaches an event-based gateway. If two working days pass without an approval decision being obtained in the form of an intermediate message catch event, the third approver must be reminded by e-mail. An REST API call of the form fetch and lock is performed. At this stage, the employee information of the third approver is queried from the MySQL database and the approval decision mail has to be sent again. After the task is completed, an API REST request is sent back to Camunda. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/cf48d6ab-17b4-4848-8127-ebde3c5cea9c)
 
 ## Notify Accounting (MAKE Scenario 14)<br />
-As soon as all decision-makers have approved the application, the accounting department must be informed of the decision. After all approvers. Since the accounting team has a fixed group mailbox, the scenario does not need a connection to the mysql database. 
+As soon as all decision-makers have approved the request, the accounting department must be informed of the decision. Since the accounting team has a fixed group mailbox, the scenario does not need a connection to the mySQL database. 
 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/73f14a98-f876-4382-972c-d73adfa8d4bc)
 
@@ -132,7 +137,7 @@ After the accounting team is notified, a call activity is performed. This is a p
 
 
 ## Send Confirmation to Initiator (MAKE Scenario 15)<br />
-Obviously, also the initiator has to be informed about the positive decision. Thereby, a last MAKE Scenario is needed to send an email with the confirmation to the applicant. After the HTTP request is completing this step, the process is ended. 
+Obviously, also the initiator has to be informed about the positive decision. Thereby, a last MAKE Scenario is needed to send an email with the confirmation to the applicant. Since the email adress of the appliant is already stored as a process variable, no connection to the mySQL database is needed. After the external worker marks this step as completed, the process is ended. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a0f1d123-3d99-4f4c-a452-41572a73c789)
 
 # Innovation
