@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql23j14.db.hostpoint.internal
+-- Erstellungszeit: 08. Jun 2023 um 22:49
+-- Server-Version: 10.6.12-MariaDB-log
+-- PHP-Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `osotolac_DigiBP23Lemons`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `fct_approval`
+--
+
+CREATE TABLE `fct_approval` (
+  `timestamp` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `answer` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `fullNameApplicant` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `projectName` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `projectNumber` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `creditAmount` int(11) DEFAULT NULL,
+  `Budgeted` varchar(5) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `creditReason` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `approverID` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `approver` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `fct_approval`
+--
+
+INSERT INTO `fct_approval` (`timestamp`, `answer`, `fullNameApplicant`, `projectName`, `projectNumber`, `creditAmount`, `Budgeted`, `creditReason`, `approverID`, `approver`) VALUES
+('21/05/2023 20:09:52', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:10:08', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:12:32', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:15:27', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:18:07', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:21:10', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:23:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:29:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:29:56', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 20:33:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:16:16', 'Approve', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:21:19', 'Approve', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:22:07', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('21/05/2023 21:23:02', 'Reject', 'Fabian Meier', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'yes', 'New Software', 'NAFI2', 'Approver1'),
+('22/05/2023 08:51:22', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('22/05/2023 13:46:43', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('22/05/2023 17:11:14', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 09:37:54', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 09:59:06', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('23/05/2023 10:03:42', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('28/05/2023 18:57:49', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 200000, 'no', 'New Software', 'LUWE3', 'Approver1'),
+('04/06/2023 13:11:37', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'LUWE3', 'Approver1'),
+('04/06/2023 13:18:37', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'NAFI2', 'Approver2'),
+('04/06/2023 13:21:45', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3'),
+('04/06/2023 13:21:45', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3'),
+('05/06/2023 08:28:29', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'LUWE3', 'Approver1'),
+('05/06/2023 11:25:42', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'NAFI2', 'Approver2'),
+('05/06/2023 11:27:34', 'Approve', 'Marco Rossi', 'SAP FI Anpassung', 'CH-001919-01', 1500000, 'yes', 'New equipment', 'SVHU4', 'Approver3');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
