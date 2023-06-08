@@ -77,12 +77,13 @@ The process  starts with the receiption of new credit application. The credit ap
 The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL is created:<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2066d55c-498f-40e6-87db-698aae902997)
  ### Get additional information<br />
-From the variables of the initial request, further information out of the database can be added. As this task is fulfilled by a external worker, a REST API call of the form fetch and lock is performed that is subscribed to a specific topic. The worker selects the row for which request no enrichement has taken place so far (Project Details = null). On one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
+From the variables of the initial request, further information out of the database can be added. Since this task is performed by an external worker, a REST API call of the form fetch and lock is made, subscribed to a specific topic. The worker selects the row for whose request no enrichment has yet taken place (Project Details = null). On the one hand, more information about the initiator is requested (mySQL Table dim_Employees), on the other hand, information about the project in question is retrieved (mySQL Table dim_Projects). After successful enrichment, the Project Details cell is updated to "yes" and the task is marked as completed by sending an API REST request back to Camunda. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/68a80eea-2c76-4393-af1d-9c2a57c6ed21)
 
  ### Error Handling<br />
-In case that the project cannot be identified, an error handling task is required. Without knowing the sub-project-manager and/or the project manager the process could not be moved forward. Thus, an Intermediate Event Interruption is attached to the service task to handle this error. In this case, the backoffice has to contact the initiator to clarify the project details and to correct the form. 
-To trigger this error event, a router in make was included. If the project ID does not exists in the mySQL database, a http request to the BPMN error Message Event is sent. 
+If no entry for the project is found in the database, an error handling task is required. Without knowing the subproject manager and/or the project manager of the project,  the process cannot be continued. Thus, an intermediate event interruption is attached to the service task to handle this error. In this case, the back office must contact the initiator to clarify the project details and correct the form. 
+To trigger this error event, a router a router has been added to the MAKE scenario. If the project ID does not exists in the mySQL database, a REST API request to the BPMN error message event is sent back to Camunda. 
+
 ## Decide on ML Level for Third Approver (DMN)<br />
 In the decision requirements diagram the overview on how to decide on the ML Level for the third approver is shown. In a frist step, the amount of the credit as well as the fact whether the credit was budgeted or not are used as input, resulting into the required ML Level of the third approver. This output variable is used as an input for the second decision model, where also the ML Level of the initiator is considered. Meaning, if the ML Level of the initiator is equal or above the ML Level of the third approver, the third approval can be dispensed. As the unique hit rule is applied, each combination will lead to a unique, unambiguous output. 
 
@@ -91,7 +92,7 @@ In the decision requirements diagram the overview on how to decide on the ML Lev
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/a889e7aa-1f6f-468a-a165-4fab5cea044c)
 
 ## Get Approver 3 (MAKE Scenario 3)<br />
-After the DMN returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
+After the DMN task returned the ML Level of the thrid approver, the user behind this ML Level can be identified. 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/98e32f67-05b5-48d8-b26b-149dc9791585)
 
 ## Send Request for Approval (MAKE Scenarios 4, 7, 10)<br />
@@ -123,6 +124,11 @@ After the approval decision of the third approver has been requested, the proces
 As soon as all decision-makers have approved the application, the accounting department must be informed of the decision. After all approvers. Since the accounting team has a fixed group mailbox, the scenario does not need a connection to the mysql database. 
 
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/73f14a98-f876-4382-972c-d73adfa8d4bc)
+
+## Call Activity to Change the SAP Status
+After the accounting team is notified, a call activity is performed. This is a process that is performed by the back office team. To illustrate this step in our prototype, a simple user task is added that needs to be claimed and completed in Camunda. 
+
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/3ca50a99-cf5c-4f63-afaf-6d075401ea96)
 
 
 ## Send Confirmation to Initiator (MAKE Scenario 15)<br />
