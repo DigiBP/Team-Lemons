@@ -143,6 +143,13 @@ Obviously, also the initiator has to be informed about the positive decision. Th
 # Innovation
 To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  
 
+# Benefits
+This chapter will give a short summary of the benefits of our solution. <br />
+
+The team created an automated funding request system that is able to streamline the funding approval process, eliminate manual paperwork and reduce inefficiencies. The digital platform provides real-time visibility of the approval status to all stakeholders involved in the process.
+The data validation mechanisms and automated calculations within the funding request helps users to minimalize errors and to ensure accurate financial information. 
+The implementation of a clearly defined approval workflows and automated notifications for the request approvers reduces the runtime of the process and delays in the funding allocation. Our standardized templates and guidelines ensure comparability and efficiency of the requests. 
+
 # Outlook
 In the following an outlook about possible enhancements of the process will be given. <br />
 
