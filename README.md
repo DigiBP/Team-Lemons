@@ -143,14 +143,17 @@ Obviously, also the initiator has to be informed about the positive decision. Th
 # Innovation
 To incorporate innovation into the workflow, the team trained an algorithm that predicts whether the request is likely to be approved or denied based on previous requests.  <br />
 
-To make the prediction, sample data sets are needed to train the model. The data needed for this comes from the MySQL table fct_Approval. This table holds all approvals from all levels. However, only the last instance is relevant for the prediction, so the table is modified for Aito.ai and only the necessary data rows are uploaded. After uploading the data to Aito.ai, a schema must be defined. For each column it must be decided what the data type is and if it is needed for the prediction. <br />
+To make the prediction, sample data sets are needed to train the model. The data needed for this comes from the MySQL table fct_Approval. This table holds all approvals from all levels. However, only the last instance is relevant for the prediction, so the table is modified for Aito.ai and only the necessary data rows are uploaded. It was tried to represent all possible scenarios (different approvals, amounts, budgets), so that the model can be trained in the best way. In this way, Aito.ai is able to make a prediction for all possible cases. After uploading the data to Aito.ai, a schema must be defined. For each column it must be decided what the data type is and if it is needed for the prediction. <br />
 
 In our case the following columns were relevant for the prediction:
 * Answer
 * Budgeted
 * Approver
-* Credit Amount
+* Credit Amount <br />
 
+After defining the table and the scheme, predictions can be made on Aito.ai. The table and the column to be predicted must be selected. Based on this information, the remaining columns that have been specified as relevant will be displayed. After providing the data, the tool makes a prediction accordingly. <br />
+
+The goal is to automatically forward this prediction to the approvers via e-mail, so that they can see at an early stage how likely it is that the request will be accepted. If the prediction is negative, the requestors can react early and adjust the request to increase the chance for approval. <br />
 
 
 # Benefits
