@@ -1,0 +1,53 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql23j14.db.hostpoint.internal
+-- Erstellungszeit: 08. Jun 2023 um 22:48
+-- Server-Version: 10.6.12-MariaDB-log
+-- PHP-Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `osotolac_DigiBP23Lemons`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `dim_Projects`
+--
+
+CREATE TABLE `dim_Projects` (
+  `PSP_Element` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Project` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `Cost_Center` int(11) DEFAULT NULL,
+  `Project_Manager_ID` varchar(50) DEFAULT NULL,
+  `SUB_Project_Manager_ID` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `dim_Projects`
+--
+
+INSERT INTO `dim_Projects` (`PSP_Element`, `Project`, `Cost_Center`, `Project_Manager_ID`, `SUB_Project_Manager_ID`) VALUES
+('CH-001287-06', 'Beschaffung Codescanner', 2056, 'EMTA7', 'LABA1'),
+('CH-001919-01', 'SAP FI Anpassung', 10182, 'NAFI2', 'LUWE3'),
+('CH-001570-10-3', 'Marketing-Kampagne - Summer season', 1979, 'LUFE8', 'NISR0'),
+('CH-002456-01', 'Teamevent Finance Treasury', 10245, 'ALBI0', 'MAIV3'),
+('CH-004456-08', 'TK-Erneuerung', 8548, 'ISCO1', 'ADKO6'),
+('CH-003568-11-2', 'Implementierung Workflow-Prozess', 45685, 'OLKE9', 'MABA2');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
