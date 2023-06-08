@@ -1,0 +1,49 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql23j14.db.hostpoint.internal
+-- Erstellungszeit: 09. Jun 2023 um 00:17
+-- Server-Version: 10.6.12-MariaDB-log
+-- PHP-Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Datenbank: `osotolac_DigiBP23Lemons`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `dim_DirectoryUnit`
+--
+
+CREATE TABLE `dim_DirectoryUnit` (
+  `dim_DirectoryUnit_bk` varchar(50) DEFAULT NULL,
+  `DIR_ID` varchar(50) DEFAULT NULL,
+  `Directory_Unit` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `dim_DirectoryUnit`
+--
+
+INSERT INTO `dim_DirectoryUnit` (`dim_DirectoryUnit_bk`, `DIR_ID`, `Directory_Unit`) VALUES
+('1', '1', 'Board of Directors'),
+('4', '4', 'Logistics'),
+('5', '5', 'Finance'),
+('7', '7', 'IT, Digital & Customer');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
