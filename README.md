@@ -12,6 +12,10 @@ This document describes the credit approval process at the Coop Group and how it
 Coop dedicates a certain amount of money for each project running currently and in the future. Therefore, project managers and their teams have a fund to finance their projects with. This fund is regulated by the project manager him-/herself and the responsible line managers. Depending on how much money the team is requesting for a task, there are certain approval procedures that must be adhered to.<br />
 
 The team "Lemons" will simplify and digitalize the current process for Coop and build a prototype within Camunda and Make.<br />
+<br />
+
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/09cd92b7-76ec-42a9-94b3-0779cbdb6e7c)
+<br />
 
 # Process Design <br />
 In the following chapter the process design of the as-is-process and the to-be-process will be described. The to-be-process was defined in meetings with Coop. <br />
@@ -59,13 +63,13 @@ In the following the process steps of the to-be process are explained.
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
 ## Message Start Event (MAKE Scenario 1) <br />
-The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with Email sent = yes. Only for rows where Email sent = null Emails will be sent. Lastly, the new application automatically triggers a new process instance and starts the process in Camunda.
+The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with email sent = yes. Only for rows where Email sent = null emails will be sent. Lastly, a HTTP request to the defined Camunda message is sent and triggers a new process instance.
 ![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
 ## Get Project Details (MAKE Scenario 2) <br />
 The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
  ### Get additional information (iSaaS)<br />
-From the variables of the initial request, further information out of the database can be added. One one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
+From the variables of the initial request, further information out of the database can be added. On one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/68a80eea-2c76-4393-af1d-9c2a57c6ed21)
 
  ### Error Handling<br />
