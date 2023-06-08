@@ -105,7 +105,7 @@ For each approver, an approval request is sent per email. In the email, HTML but
 **JavaScript for Approve Button:** <br />
 ![Approval_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/07f910eb-5b87-462b-a9d5-8307ce2d9248)
 **JavaScript for Reject Button:** <br />
-![Rejection_Script](https://github.comIf the approval decision is negative, the initiator must be informed about this decision. Afterwards, the process is ended without applying for further approvals. /DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
+![Rejection_Script](https://github.com/DigiBP/Team-Lemons/assets/127504259/3a51aee5-65ed-4b06-97ad-82e99dbbc469)
 
 ## Get Approval Decision (MAKE Scenarios 5, 8, 12)<br />
 As described in the previous step, each approval decision is recorded as a new row in a Google Sheet after clicking the corresponding HTML button. In MAKE, a Google Sheets module is watching for new rows, and to reduce errors, is filtering to rows that are not yet processed and updates them with yes. Afterwards, a HTTP request is sent back to the Camunda Process instance which completes the intermediate message event. 
