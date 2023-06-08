@@ -63,12 +63,20 @@ In the following the process steps of the to-be process are explained.
 # Digitalization of Process <br />
 As already visible in the to-be process, several process steps are to be automated: 
 ## Message Start Event (MAKE Scenario 1) <br />
-The process instance starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, the row is updated with email sent = yes. Only for rows where Email sent = null emails will be sent. Lastly, a HTTP request to the defined Camunda message is sent and triggers a new process instance.
+The process  starts with the receiption of new credit application. The credit application is filled out using Google Forms, which is connected with Google Sheets. As soon as a new request is submitted, a new row in the Google Sheets is inserted. For each new row, an email to the initiator is sent to confirm the receiption. To ensure that the email is sent just once, only for rows where Email sent = null emails will be sent. After executing the gmail module, the row is updated with email sent = "yes". Lastly, a HTTP request to the Camunda message "creditRequestCreated" is sent to Camunda to trigger a new process instance. This requests includes the varibales of the form and the indication of a unique business key.<br />
 ![image](https://user-images.githubusercontent.com/127504259/235854898-c886ee63-9be6-464d-a459-12ba72591bc6.png)
+
+**Google Forms:**<br />
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/6f8b92d7-ec74-4336-ac10-ac1e00fdd0e5)
+
+**Google Sheets for Form Responses:**<br />
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2f7f03b1-6fe5-48a9-b01d-8a68cd3f286d)
+
+
 ## Get Project Details (MAKE Scenario 2) <br />
-The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with the tables "employees" and "Projects" is created:
-![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/195451a6-3167-4373-9b82-2ec0dee45a66)
- ### Get additional information (iSaaS)<br />
+The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL with is created:<br />
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2066d55c-498f-40e6-87db-698aae902997)
+ ### Get additional information<br />
 From the variables of the initial request, further information out of the database can be added. On one hand, more information about the initiator is requested, on the other hand, information about the project in question is retrieved.
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/68a80eea-2c76-4393-af1d-9c2a57c6ed21)
 
