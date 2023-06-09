@@ -98,10 +98,22 @@ After the DMN task returned the ML Level of the thrid approver, the user behind 
 
 ## Send Request for Approval (MAKE Scenarios 4, 7, 10)<br />
 For each approver, an approval request is sent per email. In the email, HTML buttons are provided to either decline or approve a credit application. These buttons contain links that access a Google Apps Script web app URL. This URL is further enriched with additional parameters regarding the credit application. Upon clicking, the JavaScript code within the web app is executed, saving the record in a Google Sheets table.<br />
+<br />
+**Scenario for Approver 2 and 3 (7, 10)**<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/0d8a8715-4250-4abb-95da-44fff0197cd0)
 <br />
 <br />
-**Email for Approval Request:** <br />
+In the scenario for the subproject manager, an additional HTTP module is included. There, an API REST call is made to aito.ai to get a prediction about the final decision whether the application will be approved or rejected in the end. The reason for this prediction is to speed up the process and intervene early if the prediction is negative. This part is described in more detail in the section "Innovation".<br />
+<br />
+**Scenario for Approver 1 (4)**<br />
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/cc308253-b57e-4ced-a72a-b7c14ca7912f)
+<br />
+<br />
+**Email for Approval Request including Prediction (Scenario 4)**<br />
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/341bf005-682d-4fed-beec-c55f47f4bf91)
+<br />
+<br />
+**Email for Approval Request (Scenario 7, 10)** <br />
 ![Approval_Request](https://github.com/DigiBP/Team-Lemons/assets/127504259/3d637c57-32a8-4e4c-a31c-dced4de17ea8)
 <br />
 **JavaScript for Approve Button:** <br />
