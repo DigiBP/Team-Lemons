@@ -75,7 +75,7 @@ The process  starts with the receiption of new credit application. The credit ap
 
 
 ## Get Project Details (MAKE Scenario 2) <br />
-The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a database within mySQL is created:<br />
+The application form is to be enriched with further project information such as the project's name and the (sub-)project manager as well as information about the initiator. This data has to be requested from the database. For this project, a snowflake-based database within mySQL is created:<br />
 ![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/2066d55c-498f-40e6-87db-698aae902997)
  ### Get additional information<br />
 From the variables of the initial request, further information out of the database can be added. Since this task is performed by an external worker, a REST API call of the form fetch and lock is made, subscribed to a specific topic. The worker selects the row for whose request no enrichment has yet taken place (Project Details = null). On the one hand, more information about the initiator is requested (mySQL Table dim_Employees), on the other hand, information about the project in question is retrieved (mySQL Table dim_Projects). After successful enrichment, the Project Details cell is updated to "yes" and the task is marked as completed by sending an API REST request back to Camunda. 
@@ -153,7 +153,7 @@ In our case the following columns were relevant for the prediction:
 
 After defining the table and the scheme, predictions can be made on Aito.ai. The table and the column to be predicted must be selected. Based on this information, the remaining columns that have been specified as relevant will be displayed. After providing the data, the tool makes a prediction accordingly. <br />
 
-The goal is to automatically forward this prediction to the approvers via e-mail, so that they can see at an early stage how likely it is that the request will be accepted. If the prediction is negative, the requestors can react early and adjust the request to increase the chance for approval. <br />
+The goal is to automatically forward this prediction to the approvers via e-mail, so that they can see at an early stage how likely it is that the request will be accepted. If the prediction is negative, the requestors can react early and adjust the request to increase the chance for approval. A POST API HTTP Request was build within MAKE in order to get the prediction.<br />
 
 
 # Benefits
