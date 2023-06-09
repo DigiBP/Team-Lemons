@@ -164,7 +164,7 @@ In our case the following columns were relevant for the prediction:
 * Credit Amount <br />
 
 After defining the table and the scheme, predictions can be made on Aito.ai. The table and the column to be predicted must be selected. Based on this information, the remaining columns that have been specified as relevant will be displayed. After providing the data, the tool makes a prediction accordingly. <br />
-![image](https://github.com/DigiBP/Team-Lemons/assets/130751122/4628c17a-9a2e-4dc2-bccd-71e6fc69bcf7)
+![image](https://github.com/DigiBP/Team-Lemons/assets/127504259/95783cf1-ce38-424f-8411-2ffcecbdf9e0)
 
 The goal is to automatically forward this prediction to the approvers via e-mail, so that they can see at an early stage how likely it is that the request will be accepted. If the prediction is negative, the requestors can react early and adjust the request to increase the chance for approval. A POST API HTTP Request was build within the MAKE Scenarios in order to get the prediction.<br />
 
